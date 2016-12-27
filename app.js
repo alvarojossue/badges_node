@@ -2,7 +2,7 @@
 // Solution: Use Node.js to connect to Treehouse's API to get profile information to print out
 
 function printMessage(username, badgeCount, points){
-	var message = username + " has " + badgeCount + " total badge(s) and " + points " points in JavaScript";
+	var message = username + " has " + badgeCount + " total badge(s) and " + points + " points in JavaScript";
 	console.log(message);
 }
 //Connect to API URL (http://teamtreehouse.com/username.json)
@@ -10,3 +10,5 @@ function printMessage(username, badgeCount, points){
 //Read the data
 //Parse the data
 //Print the data
+
+printMessage("Alvaro", 10, 10000)
