@@ -18,9 +18,18 @@ function printMessage(username, badgeCount, points){
 		response.on('data', function(chunk){
 			body += chunk;
 		})
-		response.on("end", function(){
-			var profile = JSON.parse(body)
-			printMessage(username, profile.badges.length, profile.points.JavaScript)
+
+		response.on("end", function(){ // When all the data has been received
+			if (response.statusCode === 200) {
+				try {
+					var profile = JSON.parse(body)
+					printMessage(username, profile.badges.length, profile.points.JavaScript)
+				} catch(error) { 
+					printError(error) // Parse Error
+				}
+			} else {
+				printError({message: "There was an error getting the profile for " + username + ". (Error: " + response.statusCode + ")"}); //Status Code Error
+			}
 		})
 
 		//Parse the data
@@ -30,7 +39,13 @@ function printMessage(username, badgeCount, points){
 		//Print the data
 	})
 
-//Handle error event
+//Connection Error
 	request.on("error", function(error){
 		console.error(error.message)
 	})
+
+// Function to print error
+
+function printError(error){
+	console.error(error.message)
+} 
