@@ -1,10 +1,10 @@
-== Treehouse Badges & JavaScript Points 
+# Treehouse Badges & JavaScript Points 
 
 Command line application to retrieve user's profile information from the Treehouse API.
 
 ## Technologies
 
-- This application is written in JavaScript to run on the Node.js platform
+- This application is written in JavaScript to run on the Node.js platform.
 
 ## Usage
 
